@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/stylesheet/style.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <title>Document</title>
+</head>
+<body class="bg-black scrollbar-hide ">
+    <div class="w-full h-full p-7 text-white h-100">
+      <a  class="text-blue-500" href="/">Go To Home Page</a> 
+        <h1 class="text-3xl font-bold mb-3 ">All Users</h1>
+        <div class="Users flex gap-2 flex-wrap h-100">
+           <% users.forEach(function(user){ %>
+            <div class="user max-w-72 p-4 border-2 border-zinc-800 rounded-lg">
+                <div class="w-full h-72 rounded-lg bg-zinc-700">
+                    <div class="w-full h-72 rounded-lg bg-blue-700 overflow-hidden">
+                        <img class="w-full h-full object-cover" src="<%=user.image %>">
+                    </div>
+                </div>
+                <h3 class="text-2xl tracking-tighter mt-3"><%=user.name %></h3>
+                <h5 class="text-zinc-500 text-white mt-3 text-truncate ">email :<%=user.email%></h5>
+                <h5 class="text-zinc-500 text-white mt-3 ">password<%=user.password%></h5>
+                <div class="flex gap-3">
+                    <a class="px-5 py-2 bg-blue-500 rounded-lg mt-3 mt-3" href="/edit/<%=user._id%>">Edit User</a>
+                    <a class="px-5 py-2 bg-red-500 rounded-lg mt-3" href="/Delete/<%=user._id%>">Delete User</a>
+                </div>
+            </div>    
+         <%  }) %>
+        </div>
+       
+    </div>
+</body>
+</html>
